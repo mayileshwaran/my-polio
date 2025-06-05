@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mayileshwaran | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .profile-img {
+      width: 150px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #8e44ad;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      color: #9b59b6;
+    }
+    .skill-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #9b59b6;
+    }
+    .form-control, .btn {
+      border-radius: 0;
+    }
+   
+    .footer {
+      padding: 20px 0;
+      background: #111;
+    }
+    .studies{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Mayileshwaran</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav text-uppercase">
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#studies">Studies</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="text-center p-4">
+  <img src="./IMG_20240501_085527.jpg" alt="Profile" class="profile-img mb-3">
+  <h2>I am <strong>Mayileshwaran</strong></h2>
+  <p class="text-muted">Web Developer & Designer</p>
+  <p>I am a skilled and creative <strong>Front-End Developer</strong> passionate about building websites and web applications.</p>
+</section>
+
+<!-- Skills -->
+<section class="container text-center" id="skills">
+  <h3 class="section-title">My Skills</h3>
+  <div class="row row-cols-2 row-cols-md-4 g-4 mt-3">
+    <div class="col"><div><i class="fab fa-html5 skill-icon"></i><p>HTML</p></div></div>
+    <div class="col"><div><i class="fab fa-css3-alt skill-icon"></i><p>CSS</p></div></div>
+    <div class="col"><div><i class="fab fa-bootstrap skill-icon"></i><p>Bootstrap</p></div></div>
+    <div class="col"><div><i class="fab fa-js skill-icon"></i><p>JavaScript</p></div></div>
+    <div class="col"><div><i class="fab fa-react skill-icon"></i><p>React</p></div></div>
+    <div class="col"><div><i class="fab fa-node-js skill-icon"></i><p>jQuery</p></div></div>
+    <div class="col"><div><i class="fas fa-database skill-icon"></i><p>Databases</p></div></div>
+    <div class="col"><div><i class="fab fa-php skill-icon"></i><p>PHP</p></div></div>
+    <div class="col"><div><i class="fab fa-laravel skill-icon"></i><p>Laravel</p></div></div>
+    <div class="col"><div><i class="fab fa-wordpress skill-icon"></i><p>WordPress</p></div></div>
+    <div class="col"><div><i class="fas fa-search skill-icon"></i><p>SEO</p></div></div>
+    <div class="col"><div><i class="fab fa-figma skill-icon"></i><p>Figma</p></div></div>
+  </div>
+</section>
+
+<!-- Studies -->
+<section class="container" id="studies">
+  <h3 class="section-title text-center">Studies</h3>
+  <ul class="list-group bg-dark mt-3 studies">
+    <li class="list-group-item bg-dark text-white border-0">🎓 UG: completed BCA in The American College with 7.6 CGPA</li>
+    <li class="list-group-item bg-dark text-white border-0">📘 HSC: 12th in 2022 at St. Joseph – 83%</li>
+    <li class="list-group-item bg-dark text-white border-0">📗 SSLC: 10th in 2020 at St. Joseph – 53%</li>
+  </ul>
+</section>
+
+<!-- Projects -->
+<section class="container" id="projects">
+  <h3 class="section-title text-center">My Projects</h3>
+  <div class="row row-cols-1 row-cols-md-2 g-3 mt-3">
+    <div class="col"><div class="bg-secondary p-3 rounded">🏋️ Gymso – Fitness Landing Page</div></div>
+    <div class="col"><div class="bg-secondary p-3 rounded">🤰 Fetal Health Care – Pregnancy Tracker</div></div>
+    <div class="col"><div class="bg-secondary p-3 rounded">🖥️ My Portfolio – Personal Website</div></div>
+    <div class="col"><div class="bg-secondary p-3 rounded">🎓 College Finder – Course Search Platform</div></div>
+  </div>
+</section>
+
+<!-- Contact Form -->
+<section class="container mt-5" id="contact">
+  <h3 class="section-title text-center">Contact Me</h3>
+  <form class="row g-3 mt-3">
+    <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Name">
+    </div>
+    <div class="col-md-6">
+      <input type="email" class="form-control" placeholder="Email">
+    </div>
+    <div class="col-12">
+      <textarea class="form-control" rows="3" placeholder="Message"></textarea>
+    </div>
+    <div class="col-12 text-center">
+      <button type="submit" class="btn btn-outline-light px-4">Submit</button>
+    </div>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer class="footer text-center mt-5">
+  <div class="container">
+    <p>📞 9677929212 | 📧 mayileshwaran2005@gmail.com | 📍 Madurai</p>
+    <p>
+      <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="text-light me-3"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="text-light"><i class="fab fa-github"></i></a>
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
