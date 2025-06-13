@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Portfolio</title>
+ <link rel="shortcut icon" href="./favicon.jpg" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -62,6 +63,8 @@
       margin-bottom: 0.5rem;
       color: #007bff;
     }
+
+
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
@@ -85,18 +88,19 @@
   </nav>
 
   <!-- Home -->
-   <section id="home" class="container py-5 ">
+   <section id="home" class="container  py-md-5 ">
   <div class="row align-items-center flex-column-reverse flex-md-row">
-    <div class="col-md-7 text-center text-md-start py-5">
+    <div class="col-md-7 text-center text-md-start py-md-5">
       <h1 class="display-4 fw-bold">Mayileshwaran Deivendran</h1>
       <h5 class="display-4 fw-semibold ">Full Stack Web Developer</h5>
       <p class="lead">I am a Full Stack Web Developer passionate about building complete and responsive web applications.
             Currently pursuing my Postgraduate degree in Computer Applications.
 Focused on enhancing my skills in full-stack development,  and advanced backend systems.
 Actively working on real-world projects to bridge academic learning with industry needs.</p>
+
     </div>
-    <div class="col-md-5 text-center mb-4 mb-md-0">
-      <img src="./download (1).png" alt="Profile" class="img-fluid py-5 mx-auto d-block" style="max-width: 250px;">
+    <div class="col-md-5 img text-center  px-0 py-md-5">
+      <img src="./download (1).png" alt="Profile" class="img-fluid py-5 w-md-50 mx-auto d-block" style="max-width: 250px;">
     </div>
   </div>
 </section>
@@ -293,9 +297,30 @@ Actively working on real-world projects to bridge academic learning with industr
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Mayileshwaran | All rights reserved</p>
-  </footer>
+<footer class="bg-primary text-white pt-4 mt-5">
+  <div class="container text-center">
+    <div class="row justify-content-center">
+      <div class="col-md-3 mb-4 text-md-start">
+        <h5>Contact Me</h5>
+        <p><i class="bi bi-telephone"></i> <a href="tel:+919677929212" class="text-white text-decoration-none">+91 9677929212</a></p>
+        <p><i class="bi bi-geo-alt"></i> MADURAI</p>
+        <p><i class="bi bi-envelope"></i> <a href="mailto:mayileshwaran2005@gmail.com" class="text-white text-decoration-none">mayileshwaran2005@gmail.com</a></p>
+      </div>
+      <div class="col-md-3">
+        <h5>Follow Me</h5>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="https://www.instagram.com/master_mayilesh_23/?igsh=dndmaDhwa2FsNGgw#" target="_blank" class="text-white"><i class="bi bi-instagram fs-4"></i></a>
+          <a href="https://www.linkedin.com/in/mayileshwaran-undefined-31623a33b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-white"><i class="bi bi-linkedin fs-4"></i></a>
+          <a href="https://www.behance.net/mayilesmayiles" target="_blank" class="text-white"><i class="bi bi-behance fs-4"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <small>&copy; 2025 Mayileshwaran | All rights reserved</small>
+    </div>
+  </div>
+</footer>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
