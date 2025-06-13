@@ -2,146 +2,301 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mayileshwaran | Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <style>
     body {
-      background-color: #0d0d0d;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
+      position: relative;
+      scroll-behavior: smooth;
+      background-color: #ffffff;
     }
     .profile-img {
-      width: 150px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
-      box-shadow: 0 0 15px #8e44ad;
+      object-fit: cover;
     }
     .section-title {
+      margin-bottom: 1rem;
+      font-weight: bold;
       font-size: 1.5rem;
+    }
+    #home {
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+    }
+    #home h1 {
+      font-size: 3rem;
+    }
+    #home p {
+      font-size: 1.25rem;
+    }
+    footer {
+      background-color: #007bff;
+      color: white;
+      padding: 1rem;
+      text-align: center;
       margin-top: 2rem;
-      color: #9b59b6;
+    }
+    .navbar {
+      background-color: #007bff !important;
+    }
+    .navbar .nav-link, .navbar .navbar-brand {
+      color: white !important;
+    }
+    .skill-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .skill-card:hover {
+      transform: scale(1.05);
     }
     .skill-icon {
       font-size: 2rem;
-      margin-bottom: 10px;
-      color: #9b59b6;
-    }
-    .form-control, .btn {
-      border-radius: 0;
-    }
-   
-    .footer {
-      padding: 20px 0;
-      background: #111;
-    }
-    .studies{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+      margin-bottom: 0.5rem;
+      color: #007bff;
     }
   </style>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-5" href="#home"> Mayileshwaran's Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto me-5">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#studies">Studies</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Mayileshwaran</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav text-uppercase">
-        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="#studies">Studies</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
+  <!-- Home -->
+   <section id="home" class="container py-5 ">
+  <div class="row align-items-center flex-column-reverse flex-md-row">
+    <div class="col-md-7 text-center text-md-start py-5">
+      <h1 class="display-4 fw-bold">Mayileshwaran Deivendran</h1>
+      <h5 class="display-4 fw-semibold ">Full Stack Web Developer</h5>
+      <p class="lead">I am a Full Stack Web Developer passionate about building complete and responsive web applications.
+            Currently pursuing my Postgraduate degree in Computer Applications.
+Focused on enhancing my skills in full-stack development,  and advanced backend systems.
+Actively working on real-world projects to bridge academic learning with industry needs.</p>
+    </div>
+    <div class="col-md-5 text-center mb-4 mb-md-0">
+      <img src="./download (1).png" alt="Profile" class="img-fluid py-5 mx-auto d-block" style="max-width: 250px;">
     </div>
   </div>
-</nav>
-
-<!-- Hero -->
-<section class="text-center p-4">
-  <img src="./IMG_20240501_085527.jpg" alt="Profile" class="profile-img mb-3">
-  <h2>I am <strong>Mayileshwaran</strong></h2>
-  <p class="text-muted">Web Developer & Designer</p>
-  <p>I am a skilled and creative <strong>Front-End Developer</strong> passionate about building websites and web applications.</p>
 </section>
 
-<!-- Skills -->
-<section class="container text-center" id="skills">
-  <h3 class="section-title">My Skills</h3>
-  <div class="row row-cols-2 row-cols-md-4 g-4 mt-3">
-    <div class="col"><div><i class="fab fa-html5 skill-icon"></i><p>HTML</p></div></div>
-    <div class="col"><div><i class="fab fa-css3-alt skill-icon"></i><p>CSS</p></div></div>
-    <div class="col"><div><i class="fab fa-bootstrap skill-icon"></i><p>Bootstrap</p></div></div>
-    <div class="col"><div><i class="fab fa-js skill-icon"></i><p>JavaScript</p></div></div>
-    <div class="col"><div><i class="fab fa-react skill-icon"></i><p>React</p></div></div>
-    <div class="col"><div><i class="fab fa-node-js skill-icon"></i><p>jQuery</p></div></div>
-    <div class="col"><div><i class="fas fa-database skill-icon"></i><p>Databases</p></div></div>
-    <div class="col"><div><i class="fab fa-php skill-icon"></i><p>PHP</p></div></div>
-    <div class="col"><div><i class="fab fa-laravel skill-icon"></i><p>Laravel</p></div></div>
-    <div class="col"><div><i class="fab fa-wordpress skill-icon"></i><p>WordPress</p></div></div>
-    <div class="col"><div><i class="fas fa-search skill-icon"></i><p>SEO</p></div></div>
-    <div class="col"><div><i class="fab fa-figma skill-icon"></i><p>Figma</p></div></div>
+ 
+
+  <!-- Skills -->
+  <section id="skills" class="container py-5">
+    <h2 class="section-title">Skills</h2>
+    <div class="row g-4">
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="bi bi-pencil-square skill-icon"></i>
+          <p>UI/UX</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="bi bi-filetype-html skill-icon"></i>
+          <p>HTML</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="bi bi-filetype-css skill-icon"></i>
+          <p>CSS</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="bi bi-bootstrap skill-icon"></i>
+          <p>Bootstrap</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="bi bi-github skill-icon"></i>
+          <p>GitHub</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="bi bi-filetype-js skill-icon"></i>
+          <p>JavaScript</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="bi bi-code-slash skill-icon"></i>
+          <p>jQuery</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+         <i class="fa-brands fa-react skill-icon"></i>
+          <p>React</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="bi bi-filetype-php skill-icon"></i>
+          <p>PHP</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="bi bi-database skill-icon"></i>
+          <p>MySQL</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="bi bi-wordpress skill-icon"></i>
+          <p>WordPress</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="bi bi-graph-up-arrow skill-icon"></i>
+          <p>SEO</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="bi bi-layers-half skill-icon"></i>
+          <p>Laravel</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="bi bi-brush skill-icon"></i>
+          <p>Photoshop</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+          <i class="fa-brands fa-figma skill-icon"></i>
+          <p>Figma</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="skill-card">
+         <i class="fa-brands fa-figma skill-icon"></i>
+          <p>Figjam</p>
+      </div>
+  </section>
+
+  <!-- Studies -->
+  <!-- Studies -->
+<section id="studies" class="container py-5">
+  <h2 class="section-title">Studies</h2>
+  <div class="row g-4">
+    <div class="col-md-3 text-center shadow p-3 rounded">
+      <i class="bi bi-journal-bookmark-fill skill-icon"></i>
+      <p class="fw-bold">SSLC</p>
+      <p>SSLC Completed with 53% in 2020 at ST.Joseph Matric Hr. Sec School Madurai</p>
+    </div>
+    <div class="col-md-3 text-center shadow p-3 rounded">
+      <i class="bi bi-mortarboard-fill skill-icon"></i>
+      <p class="fw-bold">HSC</p>
+      <p>HSc completed with 83% in 2022 at ST.Joseph Matric Hr. Sec School Madurai</p>
+    </div>
+    <div class="col-md-3 text-center shadow p-3 rounded">
+      <i class="bi bi-award-fill skill-icon"></i>
+      <p class="fw-bold">BCA</p>
+      <p>My ug was completed with 70% (7.6 CGPA) in 2025 At The American College Madurai</p>
+    </div>
+    <div class="col-md-3 text-center shadow p-3 rounded">
+      <i class="bi bi-journal-richtext skill-icon"></i>
+      <p class="fw-bold">Currently Pursuing PG</p>
+      <p>Currently I Am Doing MCA at Kln Engineering College </p>
   </div>
 </section>
 
-<!-- Studies -->
-<section class="container" id="studies">
-  <h3 class="section-title text-center">Studies</h3>
-  <ul class="list-group bg-dark mt-3 studies">
-    <li class="list-group-item bg-dark text-white border-0">🎓 UG: completed BCA in The American College with 7.6 CGPA</li>
-    <li class="list-group-item bg-dark text-white border-0">📘 HSC: 12th in 2022 at St. Joseph – 83%</li>
-    <li class="list-group-item bg-dark text-white border-0">📗 SSLC: 10th in 2020 at St. Joseph – 53%</li>
-  </ul>
-</section>
-
-<!-- Projects -->
-<section class="container" id="projects">
-  <h3 class="section-title text-center">My Projects</h3>
-  <div class="row row-cols-1 row-cols-md-2 g-3 mt-3">
-    <div class="col"><div class="bg-secondary p-3 rounded">🏋️ Gymso – Fitness Landing Page</div></div>
-    <div class="col"><div class="bg-secondary p-3 rounded">🤰 Fetal Health Care – Pregnancy Tracker</div></div>
-    <div class="col"><div class="bg-secondary p-3 rounded">🖥️ My Portfolio – Personal Website</div></div>
-    <div class="col"><div class="bg-secondary p-3 rounded">🎓 College Finder – Course Search Platform</div></div>
+  <!-- Projects -->
+  <!-- Projects -->
+<section id="projects" class="container py-5">
+  <h2 class="section-title">Projects</h2>
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <img src="./images/Capture4.PNG" class="card-img-top img-fluid" alt="Fetal Health Care">
+        <div class="card-body">
+          <h5 class="card-title">Fetal Health Care</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <img src="./gym 1.png" class="card-img-top img-fluid" alt="Gymso">
+        <div class="card-body">
+          <h5 class="card-title">Gymso</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <img src="./images/s.PNG" class="card-img-top img-fluid" alt="College Finder">
+        <div class="card-body">
+          <h5 class="card-title">College Finder</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <img src="./images/vm.PNG" class="card-img-top img-fluid" alt="Village Management">
+        <div class="card-body">
+          <h5 class="card-title">Village Management </h5>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Contact Form -->
-<section class="container mt-5" id="contact">
-  <h3 class="section-title text-center">Contact Me</h3>
-  <form class="row g-3 mt-3">
-    <div class="col-md-6">
-      <input type="text" class="form-control" placeholder="Name">
-    </div>
-    <div class="col-md-6">
-      <input type="email" class="form-control" placeholder="Email">
-    </div>
-    <div class="col-12">
-      <textarea class="form-control" rows="3" placeholder="Message"></textarea>
-    </div>
-    <div class="col-12 text-center">
-      <button type="submit" class="btn btn-outline-light px-4">Submit</button>
-    </div>
-  </form>
-</section>
 
-<!-- Footer -->
-<footer class="footer text-center mt-5">
-  <div class="container">
-    <p>📞 9677929212 | 📧 mayileshwaran2005@gmail.com | 📍 Madurai</p>
-    <p>
-      <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
-      <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="text-light me-3"><i class="fab fa-linkedin"></i></a>
-      <a href="#" class="text-light"><i class="fab fa-github"></i></a>
-    </p>
-  </div>
-</footer>
+  <!-- Contact -->
+  <section id="contact" class="container py-5">
+    <h2 class="section-title">Contact</h2>
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mayileshwaran | All rights reserved</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
