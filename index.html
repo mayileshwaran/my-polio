@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mayileshwaran Portfolio</title>
- <link rel="shortcut icon" href="./favicon.jpg" type="image/x-icon">
+  <link rel="shortcut icon" href="./favicon.jpg" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -28,6 +28,7 @@
     #home {
       padding-top: 6rem;
       padding-bottom: 4rem;
+      background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('./images/parallax-bg.jpg') center center/cover no-repeat fixed;
     }
     #home h1 {
       font-size: 3rem;
@@ -64,7 +65,97 @@
       color: #007bff;
     }
 
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
+    /* Return to Top Button */
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 12px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    #topBtn:hover {
+      background-color: #0056b3;
+    }
+    #skills {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.8s ease-out;
+}
+
+#skills.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-card {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.8s ease-out;
+}
+
+.skill-card.left {
+  transform: translateX(-100px);
+}
+
+.skill-card.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Projects section animation */
+#projects {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.8s ease-out;
+}
+
+/* When in view */
+#projects.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Studies section animation */
+#studies {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.8s ease-out;
+}
+
+/* When in view */
+#studies.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Common animation for cards */
+.reveal-card {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.7s ease;
+}
+
+.reveal-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
@@ -88,24 +179,21 @@
   </nav>
 
   <!-- Home -->
-   <section id="home" class="container  py-md-5 ">
-  <div class="row align-items-center flex-column-reverse flex-md-row">
-    <div class="col-md-7 text-center text-md-start py-md-5">
-      <h1 class="display-4 fw-bold">Mayileshwaran Deivendran</h1>
-      <h5 class="display-4 fw-semibold ">Full Stack Web Developer</h5>
-      <p class="lead">I am a Full Stack Web Developer passionate about building complete and responsive web applications.
-            Currently pursuing my Postgraduate degree in Computer Applications.
-Focused on enhancing my skills in full-stack development,  and advanced backend systems.
-Actively working on real-world projects to bridge academic learning with industry needs.</p>
-
+  <section id="home" class="container py-md-5 fade-in">
+    <div class="row align-items-center flex-column-reverse flex-md-row">
+      <div class="col-md-7 text-center text-md-start py-md-5">
+        <h1 class="display-4 fw-bold">Mayileshwaran Deivendran</h1>
+        <h5 class="display-4 fw-semibold ">Full Stack Web Developer</h5>
+        <p class="lead">I am a Full Stack Web Developer passionate about building complete and responsive web applications.
+          Currently pursuing my Postgraduate degree in Computer Applications.
+          Focused on enhancing my skills in full-stack development, and advanced backend systems.
+          Actively working on real-world projects to bridge academic learning with industry needs.</p>
+      </div>
+      <div class="col-md-5 img text-center px-0 py-md-5">
+        <img src="./download (1).png" alt="Profile" class="img-fluid py-5 w-md-50 mx-auto d-block" style="max-width: 250px;">
+      </div>
     </div>
-    <div class="col-md-5 img text-center  px-0 py-md-5">
-      <img src="./download (1).png" alt="Profile" class="img-fluid py-5 w-md-50 mx-auto d-block" style="max-width: 250px;">
-    </div>
-  </div>
-</section>
-
- 
+  </section>
 
   <!-- Skills -->
   <section id="skills" class="container py-5">
@@ -209,8 +297,7 @@ Actively working on real-world projects to bridge academic learning with industr
   </section>
 
   <!-- Studies -->
-  <!-- Studies -->
-<section id="studies" class="container py-5">
+  <section id="studies" class="container py-5 reveal-card">
   <h2 class="section-title">Studies</h2>
   <div class="row g-4 container-fluid gap-5 px-5">
     <div class="col-md-2 text-center shadow p-3 rounded">
@@ -234,12 +321,10 @@ Actively working on real-world projects to bridge academic learning with industr
       <p>Currently Currently Pursuing PG at Kln Engineering College </p>
   </div>
 </section>
-
   <!-- Projects -->
-  <!-- Projects -->
-<section id="projects" class="container py-5">
-  <h2 class="section-title">Projects</h2>
-  <div class="row">
+  <section id="projects" class="container py-5 reveal-card fade-in">
+    <h2 class="section-title">Projects</h2>
+    <div class="row">
     <div class="col-md-6 mb-4">
       <div class="card h-100">
         <img src="./images/Capture4.PNG" class="card-img-top img-fluid" alt="Fetal Health Care">
@@ -273,13 +358,13 @@ Actively working on real-world projects to bridge academic learning with industr
       </div>
     </div>
   </div>
-</section>
-
+  </section>
 
   <!-- Contact -->
-  <section id="contact" class="container py-5">
+  <section id="contact" class="container py-5 fade-in">
     <h2 class="section-title">Contact</h2>
-    <form>
+   
+     <form>
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" required>
@@ -297,7 +382,7 @@ Actively working on real-world projects to bridge academic learning with industr
   </section>
 
   <!-- Footer -->
-<footer class="bg-primary text-white pt-4 mt-5">
+ <footer class="bg-primary text-white pt-4 mt-5">
   <div class="container text-center">
     <div class="row justify-content-center">
       <div class="col-md-3 mb-4 text-md-start">
@@ -321,7 +406,162 @@ Actively working on real-world projects to bridge academic learning with industr
   </div>
 </footer>
 
+  <!-- Return to Top Button -->
+  <button id="topBtn" title="Go to top"><i class="bi bi-arrow-up"></i></button>
 
+  <!-- JS Files -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Scroll-based fade-in animation
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    faders.forEach(fade => observer.observe(fade));
+
+    // Return to Top button functionality
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+    topBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+  const skillsSection = document.getElementById("skills");
+  const skillCards = document.querySelectorAll("#skills .skill-card");
+
+  // Add alternating left/right classes to cards
+  skillCards.forEach((card, index) => {
+    if (index % 2 === 0) {
+      card.classList.add("left");
+    } else {
+      card.classList.add("right");
+    }
+  });
+
+  // Check if element is in viewport
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= window.innerHeight - 100 && rect.bottom >= 0;
+  }
+
+  // Animate when in view
+  function animateSkills() {
+    if (isInViewport(skillsSection)) {
+      skillsSection.classList.add("show");
+      skillCards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add("show");
+        }, index * 100); // stagger animation
+      });
+    } else {
+      skillsSection.classList.remove("show");
+      skillCards.forEach(card => card.classList.remove("show"));
+    }
+  }
+
+  window.addEventListener("scroll", animateSkills);
+  animateSkills(); // Call on page load
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const skillCards = document.querySelectorAll("#skills .skill-card");
+
+  // Add alternate direction classes
+  skillCards.forEach((card, index) => {
+    card.classList.add(index % 2 === 0 ? "slide-left" : "slide-right");
+  });
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= window.innerHeight - 100 && rect.bottom >= 0;
+  }
+
+  function animateSkillCards() {
+    skillCards.forEach((card) => {
+      if (isInViewport(card)) {
+        card.classList.add("in-view");
+      } else {
+        card.classList.remove("in-view"); // for reverse animation
+      }
+    });
+  }
+
+  window.addEventListener("scroll", animateSkillCards);
+  animateSkillCards(); // Run on load
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const projectSection = document.getElementById("projects");
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= window.innerHeight - 100 && rect.bottom >= 0;
+  }
+
+  function animateProjects() {
+    if (isInViewport(projectSection)) {
+      projectSection.classList.add("show");
+    } else {
+      projectSection.classList.remove("show");
+    }
+  }
+
+  window.addEventListener("scroll", animateProjects);
+  animateProjects(); // on page load
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const studiesSection = document.getElementById("studies");
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= window.innerHeight - 100 && rect.bottom >= 0;
+  }
+
+  function animateStudies() {
+    if (isInViewport(studiesSection)) {
+      studiesSection.classList.add("show");
+    } else {
+      studiesSection.classList.remove("show");
+    }
+  }
+
+  window.addEventListener("scroll", animateStudies);
+  animateStudies(); // Trigger once on load
+});
+document.addEventListener("DOMContentLoaded", () => {
+  // Select all cards in projects and studies section
+  const revealElements = document.querySelectorAll("#projects .card, #studies .shadow");
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= window.innerHeight - 100 && rect.bottom >= 0;
+  }
+
+  function animateOnScroll() {
+    revealElements.forEach((el, index) => {
+      if (isInViewport(el)) {
+        setTimeout(() => el.classList.add("show"), index * 100); // staggered animation
+      } else {
+        el.classList.remove("show");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", animateOnScroll);
+  animateOnScroll(); // Initial trigger on load
+});
+</script>
+
+  
 </body>
 </html>
