@@ -101,6 +101,18 @@
   transform: translateY(100px);
   transition: all 0.8s ease-out;
 }
+/* Initial State for Animation */
+.fade-parallax {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease-out;
+}
+
+/* When Element Enters View */
+.fade-parallax.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 #skills.show {
   opacity: 1;
@@ -156,6 +168,165 @@
   opacity: 1;
   transform: translateY(0);
 }
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 160px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background: #ffffff;
+}
+
+.flip-card-back {
+  background: #007bff;
+  color: white;
+  transform: rotateY(180deg);
+}
+.cursor {
+  display: inline-block;
+  color: black;
+  animation: blink 0.7s infinite;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.card {
+  overflow: hidden; /* Prevent image overflow */
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.card-img-top {
+  transition: transform 0.5s ease;
+  width: 100%;
+  height: auto;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.1); /* Zooms image without exceeding card */
+}
+.service-card {
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .service-card {
+  background-color: #1c1c1c;
+  color: #f1f1f1;
+}
+.testimonials-section {
+  background: url('./images/parallax-bg.jpg') center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  color: rgb(0, 0, 0);
+}
+
+.testimonials-section .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonials-section .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+  border-left: 3px solid #0d6efd;
+  margin-left: 2rem;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -2px;
+  width: 3px;
+  background: #0d6efd;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 2.5rem;
+}
+.timeline-icon {
+  position: absolute;
+  left: -1.25rem;
+  top: 0;
+  background: #0d6efd;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2rem;
+  font-size: 1rem;
+}
+.timeline-content {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+.timeline-content h4 {
+  margin-top: 0;
+  color: #0d6efd;
+}
+@media (max-width: 768px) {
+  .timeline {
+    margin-left: 1rem;
+    border-left: 2px solid #0d6efd;
+  }
+  .timeline-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+  }
+}
+
+
   </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
@@ -172,6 +343,7 @@
           <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="#studies">Studies</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -183,7 +355,9 @@
     <div class="row align-items-center flex-column-reverse flex-md-row">
       <div class="col-md-7 text-center text-md-start py-md-5">
         <h1 class="display-4 fw-bold">Mayileshwaran Deivendran</h1>
-        <h5 class="display-4 fw-semibold ">Full Stack Web Developer</h5>
+       <h5 class="display-4 fw-semibold">
+  <span id="typewriter"></span><span class="cursor">|Full Stack Web Developer</span>
+</h5>
         <p class="lead">I am a Full Stack Web Developer passionate about building complete and responsive web applications.
           Currently pursuing my Postgraduate degree in Computer Applications.
           Focused on enhancing my skills in full-stack development, and advanced backend systems.
@@ -196,131 +370,293 @@
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="container py-5">
-    <h2 class="section-title">Skills</h2>
-    <div class="row g-4">
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="bi bi-pencil-square skill-icon"></i>
-          <p>UI/UX</p>
+ <section id="skills" class="container py-5">
+  <h2 class="section-title">Skills</h2>
+  <div class="row g-4">
+    <!-- Skill Cards -->
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-pencil-square skill-icon"></i>
+            <p>UI/UX</p>
+          </div>
+          <div class="flip-card-back">
+            <p>User Interface & Experience Design</p>
+          </div>
         </div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="bi bi-filetype-html skill-icon"></i>
-          <p>HTML</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="bi bi-filetype-css skill-icon"></i>
-          <p>CSS</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="bi bi-bootstrap skill-icon"></i>
-          <p>Bootstrap</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="bi bi-github skill-icon"></i>
-          <p>GitHub</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="bi bi-filetype-js skill-icon"></i>
-          <p>JavaScript</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="bi bi-code-slash skill-icon"></i>
-          <p>jQuery</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-         <i class="fa-brands fa-react skill-icon"></i>
-          <p>React</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="bi bi-filetype-php skill-icon"></i>
-          <p>PHP</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="bi bi-database skill-icon"></i>
-          <p>MySQL</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="bi bi-wordpress skill-icon"></i>
-          <p>WordPress</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="bi bi-graph-up-arrow skill-icon"></i>
-          <p>SEO</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="bi bi-layers-half skill-icon"></i>
-          <p>Laravel</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="bi bi-brush skill-icon"></i>
-          <p>Photoshop</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-          <i class="fa-brands fa-figma skill-icon"></i>
-          <p>Figma</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="skill-card">
-         <i class="fa-brands fa-figma skill-icon"></i>
-          <p>Figjam</p>
-      </div>
-  </section>
+    </div>
 
-  <!-- Studies -->
-  <section id="studies" class="container py-5 reveal-card">
-  <h2 class="section-title">Studies</h2>
-  <div class="row g-4 container-fluid gap-5 px-5">
-    <div class="col-md-2 text-center shadow p-3 rounded">
-      <i class="bi bi-journal-bookmark-fill skill-icon"></i>
-      <p class="fw-bold">SSLC</p>
-      <p>SSLC Completed with 53% in 2020 at ST.Joseph Matric Hr. Sec School Madurai</p>
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-filetype-html skill-icon"></i>
+            <p>HTML</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Markup language for web content</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-md-2 text-center shadow p-3 rounded">
-      <i class="bi bi-mortarboard-fill skill-icon"></i>
-      <p class="fw-bold">HSC</p>
-      <p>HSc completed with 83% in 2022 at ST.Joseph Matric Hr. Sec School Madurai</p>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-filetype-css skill-icon"></i>
+            <p>CSS</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Style sheets for web design</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-md-2 text-center shadow p-3 rounded">
-      <i class="bi bi-award-fill skill-icon"></i>
-      <p class="fw-bold">BCA</p>
-      <p>My ug was completed with 70% (7.6 CGPA) in 2025 At The American College Madurai</p>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-bootstrap skill-icon"></i>
+            <p>Bootstrap</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Responsive CSS framework</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-md-2 text-center shadow p-3 rounded">
-      <i class="bi bi-journal-richtext skill-icon"></i>
-      <p class="fw-bold">MCA</p>
-      <p>Currently Currently Pursuing PG at Kln Engineering College </p>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-github skill-icon"></i>
+            <p>GitHub</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Version control repository hosting</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-filetype-js skill-icon"></i>
+            <p>JavaScript</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Dynamic scripting for websites</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-code-slash skill-icon"></i>
+            <p>jQuery</p>
+          </div>
+          <div class="flip-card-back">
+            <p>JavaScript library for DOM manipulation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="fa-brands fa-react skill-icon"></i>
+            <p>React</p>
+          </div>
+          <div class="flip-card-back">
+            <p>JavaScript library for building UIs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-filetype-php skill-icon"></i>
+            <p>PHP</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Server-side scripting language</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-database skill-icon"></i>
+            <p>MySQL</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Relational database management</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-wordpress skill-icon"></i>
+            <p>WordPress</p>
+          </div>
+          <div class="flip-card-back">
+            <p>CMS for creating websites/blogs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-graph-up-arrow skill-icon"></i>
+            <p>SEO</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Search engine optimization techniques</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-layers-half skill-icon"></i>
+            <p>Laravel</p>
+          </div>
+          <div class="flip-card-back">
+            <p>PHP framework for web apps</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-brush skill-icon"></i>
+            <p>Photoshop</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Image editing and design tool</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="fa-brands fa-figma skill-icon"></i>
+            <p>Figma</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Collaborative UI design tool</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="fa-brands fa-figma skill-icon"></i>
+            <p>Figjam</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Figma's whiteboard collaboration tool</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+
+  <!-- Studies -->
+  <section id="studies" class="container py-5">
+  <h2 class="section-title text-center mb-5">My Academic Journey</h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-icon"><i class="bi bi-journal-bookmark-fill"></i></div>
+      <div class="timeline-content">
+        <h4>SSLC - 2020</h4>
+        <p>
+          Completed SSLC with <strong>53%</strong> at St. Joseph Matric Hr. Sec. School, Madurai.<br>
+          Built strong academic fundamentals and developed interest in logical thinking.<br>
+          Gained early exposure to computer basics that laid the foundation for tech curiosity.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon"><i class="bi bi-mortarboard-fill"></i></div>
+      <div class="timeline-content">
+        <h4>HSC - 2022</h4>
+        <p>
+          Secured <strong>83%</strong> in HSC specializing in Computer Science and Mathematics.<br>
+          Explored programming concepts and logical reasoning through practical coursework.<br>
+          Participated in school tech events and strengthened communication skills.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon"><i class="bi bi-award-fill"></i></div>
+      <div class="timeline-content">
+        <h4>BCA - 2025</h4>
+        <p>
+          Graduated with <strong>70% (7.6 CGPA)</strong> from The American College, Madurai.<br>
+          Learned languages like C, Java, PHP, and web development tools.<br>
+          Built real-time mini projects and gained exposure to team collaboration.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon"><i class="bi bi-journal-richtext"></i></div>
+      <div class="timeline-content">
+        <h4>MCA - Present</h4>
+        <p>
+          Pursuing MCA at KLN Engineering College, focusing on full-stack development.<br>
+          Working on advanced backend systems, frameworks, and real-world applications.<br>
+          Aiming to be industry-ready with strong development and teamwork skills.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
   <!-- Projects -->
   <section id="projects" class="container py-5 reveal-card fade-in">
     <h2 class="section-title">Projects</h2>
@@ -359,31 +695,252 @@
     </div>
   </div>
   </section>
+<section id="services" class="container py-5 fade-parallax">
+  <h2 class="section-title text-center mb-4">Services</h2>
 
-  <!-- Contact -->
-  <section id="contact" class="container py-5 fade-in">
-    <h2 class="section-title">Contact</h2>
-   
-     <form>
-      <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" required>
+  <!-- Carousel Start -->
+  <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicators -->
+    <div class="carousel-indicators mb-0">
+      <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Web App"></button>
+      <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="1" aria-label="Web Design"></button>
+      <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="2" aria-label="Graphic Design"></button>
+    </div>
+
+    <!-- Carousel items -->
+    <div class="carousel-inner text-center">
+
+      <!-- Web App -->
+      <div class="carousel-item active">
+        <div class="card mx-auto p-4 shadow service-card" style="max-width: 500px;">
+          <i class="bi bi-window-fullscreen display-4 text-primary mb-3"></i>
+          <h5 class="fw-bold">Web Application</h5>
+          <p>I build dynamic and scalable web applications using technologies like Laravel, React, and MySQL tailored to solve real-world needs.</p>
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" required>
+
+      <!-- Website Design -->
+      <div class="carousel-item">
+        <div class="card mx-auto p-4 shadow service-card" style="max-width: 500px;">
+          <i class="bi bi-laptop display-4 text-success mb-3"></i>
+          <h5 class="fw-bold">Website Design</h5>
+          <p>Designing clean, responsive, and user-friendly interfaces with HTML, CSS, Bootstrap, and Figma for better web experiences.</p>
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" id="message" rows="3" required></textarea>
+
+      <!-- Graphic Design -->
+      <div class="carousel-item">
+        <div class="card mx-auto p-4 shadow service-card" style="max-width: 500px;">
+          <i class="bi bi-palette-fill display-4 text-danger mb-3"></i>
+          <h5 class="fw-bold">Graphic Design</h5>
+          <p>Crafting professional visuals, logos, posters, and branding materials using tools like Photoshop and Illustrator for your brand impact.</p>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </section>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+</section>
+
+ <!-- Contact -->
+<section id="contact" class="container py-5 fade-parallax">
+  <h2 class="section-title text-center mb-5">Contact Me</h2>
+
+  <!-- Unified Card -->
+  <div class="card shadow p-4">
+    
+          
+    <!-- Social Icons (Top Row) -->
+    <div class="row justify-content-between align-items-center mb-4 px-3">
+      <div class="col text-start">
+        <a href="https://www.instagram.com/master_mayilesh_23/?igsh=dndmaDhwa2FsNGgw#" target="_blank" class="text-dark fs-4"><i class="bi bi-instagram"></i></a>
+      </div>
+      <div class="col text-center">
+        <a href="https://www.linkedin.com/in/mayileshwaran-undefined-31623a33b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-dark fs-4"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="col text-end">
+       <a href="https://www.behance.net/mayilesmayiles" target="_blank" class="text-dark fs-4"><i class="bi bi-behance"></i></a>
+      </div>
+    </div>
+
+    <!-- Contact Info + Form in One Box -->
+    <div class="row align-items-start">
+      
+      <!-- Contact Info -->
+      <div class="col-md-5 mb-5 mb-md-0">
+        <h4 class="mb-3">Let’s connect!</h4>
+        <p>
+  <i class="bi bi-envelope-fill me-2 text-primary"></i>
+  <a href="mailto:mayileshwaran2005@gmail.com" class="text-decoration-none text-dark">
+    mayileshwaran2005@gmail.com
+  </a>
+</p>
+<p>
+  <i class="bi bi-phone-fill me-2 text-primary"></i>
+  <a href="tel:+919677929212" class="text-decoration-none text-dark">
+    +91 96779 29212
+  </a>
+</p>
+
+        <i class="bi bi-geo-alt-fill text-primary"></i>Paravai, Madurai </p>
+        <div class="mt-3">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d204.98482767197333!2d78.06089614551912!3d9.9697924998184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1750149407223!5m2!1sen!2sin" width="auto" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="col-md-7">
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="2" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+ <section id="testimonials" class="testimonials-section py-5 text-white fade-parallax">
+  <div class="container">
+    <h2 class="section-title text-center text-dark mb-5" data-aos="fade-down">Testimonials</h2>
+    
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card bg-dark bg-opacity-75 text-white shadow p-4 border-0">
+          <p>"Mayileshwaran is a quick learner and team player. He excels at turning ideas into functional websites!"</p>
+          <strong class="mt-3 d-block">— Varshini, Young Poet</strong>
+        </div>
+      </div>
+      
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card bg-dark bg-opacity-75 text-white shadow p-4 border-0">
+          <p>"A highly motivated developer who consistently delivers high-quality code. A great team member!"</p>
+          <strong class="mt-3 d-block">— Madhan, Software Engineer</strong>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="card bg-dark bg-opacity-75 text-white shadow p-4 border-0">
+          <p>"Working with Mayileshwaran was a pleasure. His attention to detail and problem-solving skills stand out."</p>
+          <strong class="mt-3 d-block">— Joshua, Software Engineer</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="about-accordion" class="container py-5 fade-parallax">
+  <h2 class="section-title mb-4">About Me - FAQs</h2>
+  <div class="accordion" id="aboutMeAccordion">
+
+    <!-- Question 1 -->
+    <div class="accordion-item mb-4">
+      <h2 class="accordion-header" id="q1">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="false" aria-controls="a1">
+          Who are you?
+        </button>
+      </h2>
+      <div id="a1" class="accordion-collapse collapse" aria-labelledby="q1" data-bs-parent="#aboutMeAccordion">
+        <div class="accordion-body">
+          I'm Mayileshwaran Deivendran, a passionate Full Stack Web Developer currently pursuing my MCA. I specialize in building responsive, efficient, and scalable web applications.
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="accordion-item mb-4">
+      <h2 class="accordion-header" id="q2">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2" aria-expanded="false" aria-controls="a2">
+          What technologies are you skilled in?
+        </button>
+      </h2>
+      <div id="a2" class="accordion-collapse collapse" aria-labelledby="q2" data-bs-parent="#aboutMeAccordion">
+        <div class="accordion-body">
+          I’m proficient in HTML, CSS, JavaScript, Bootstrap, React, PHP, MySQL, Laravel, WordPress, and more. I also have experience with GitHub and UI/UX tools like Figma and Photoshop.
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="accordion-item mb-4">
+      <h2 class="accordion-header" id="q3">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3" aria-expanded="false" aria-controls="a3">
+          What kind of projects have you worked on?
+        </button>
+      </h2>
+      <div id="a3" class="accordion-collapse collapse" aria-labelledby="q3" data-bs-parent="#aboutMeAccordion">
+        <div class="accordion-body">
+          I've worked on various projects including Fetal Health Care, College Finder, Gymso website, and a Village Management System. These projects demonstrate my full-stack capabilities and problem-solving skills.
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="accordion-item mb-4">
+      <h2 class="accordion-header" id="q4">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4" aria-expanded="false" aria-controls="a4">
+          What are your goals?
+        </button>
+      </h2>
+      <div id="a4" class="accordion-collapse collapse" aria-labelledby="q4" data-bs-parent="#aboutMeAccordion">
+        <div class="accordion-body">
+          My goal is to become an industry-ready full stack developer by building impactful real-world applications, collaborating in innovative environments, and continuously improving my skill set.
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="q5">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a5" aria-expanded="false" aria-controls="a5">
+          What makes you unique?
+        </button>
+      </h2>
+      <div id="a5" class="accordion-collapse collapse" aria-labelledby="q5" data-bs-parent="#aboutMeAccordion">
+        <div class="accordion-body">
+          I combine academic knowledge with real-world project experience. My ability to quickly learn, adapt, and apply new technologies helps me stand out as a versatile and reliable developer.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- Footer -->
  <footer class="bg-primary text-white pt-4 mt-5">
-  <div class="container text-center">
+  <!-- <div class="container text-center">
     <div class="row justify-content-center">
       <div class="col-md-3 mb-4 text-md-start">
         <h5>Contact Me</h5>
@@ -399,7 +956,7 @@
           <a href="https://www.behance.net/mayilesmayiles" target="_blank" class="text-white"><i class="bi bi-behance fs-4"></i></a>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="text-center mt-4">
       <small>&copy; 2025 Mayileshwaran | All rights reserved</small>
     </div>
@@ -410,6 +967,8 @@
   <button id="topBtn" title="Go to top"><i class="bi bi-arrow-up"></i></button>
 
   <!-- JS Files -->
+   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init();</script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Scroll-based fade-in animation
@@ -440,6 +999,20 @@
     document.addEventListener("DOMContentLoaded", () => {
   const skillsSection = document.getElementById("skills");
   const skillCards = document.querySelectorAll("#skills .skill-card");
+
+ 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        // Remove observer if you want one-time effect only
+        // observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  document.querySelectorAll('.fade-parallax').forEach((el) => observer.observe(el));
+
 
   // Add alternating left/right classes to cards
   skillCards.forEach((card, index) => {
@@ -560,6 +1133,27 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", animateOnScroll);
   animateOnScroll(); // Initial trigger on load
 });
+
+  const toggleBtn = document.getElementById("darkToggle");
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    const icon = toggleBtn.querySelector("i");
+    icon.classList.toggle("bi-moon");
+    icon.classList.toggle("bi-brightness-high");
+  });
+  const text = "Full Stack Web Developer";
+  let index = 0;
+
+  function typeWriter() {
+    if (index < text.length) {
+      document.getElementById("typewriter-text").textContent += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, 100); // Adjust speed if needed
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", typeWriter);
 </script>
 
   
