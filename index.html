@@ -75,7 +75,16 @@
       opacity: 1;
       transform: translateY(0);
     }
+.dark-mode #home {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
 
+.dark-mode #home h1,
+.dark-mode #home h5,
+.dark-mode #home p {
+  color: #ffffff !important;
+}
     /* Return to Top Button */
     #topBtn {
       display: none;
@@ -327,9 +336,80 @@
 }
 
 
-  </style>
+  
+/* DARK MODE */
+.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode .card,
+.dark-mode .navbar,
+.dark-mode .accordion-button,
+.dark-mode .accordion-body,
+.dark-mode .timeline-content,
+.dark-mode .form-control,
+.dark-mode .input-group-text,
+.dark-mode .carousel-item,
+.dark-mode .flip-card-front,
+.dark-mode .flip-card-back {
+  background-color: #1e1e1e !important;
+  color: #f1f1f1 !important;
+  border-color: #333 !important;
+}
+
+.dark-mode .navbar .nav-link,
+.dark-mode .navbar .navbar-brand {
+  color: #ffffff !important;
+}
+
+.dark-mode .section-title {
+  color: #ffffff;
+}
+
+.dark-mode a {
+  color: #90caf9;
+}
+
+.dark-mode .form-control::placeholder {
+  color: #aaa;
+}
+
+.dark-mode #home,
+.dark-mode .banner,
+.dark-mode .fade-in,
+.dark-mode .reveal-card {
+  background-color: #1c1c1c !important;
+  color: #ffffff !important;
+}
+
+.dark-mode #home h1,
+.dark-mode #home h5,
+.dark-mode #home p {
+  color: #ffffff !important;
+}
+
+
+.dark-mode #home,
+.dark-mode #home.container {
+  background-color: #121212 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+}
+
+.dark-mode #home h1,
+.dark-mode #home h5,
+.dark-mode #home p {
+  color: #ffffff !important;
+}
+
+</style>
 </head>
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
+<body>
+<button id="darkToggle" class="btn btn-dark position-fixed" style="top: 50%; right: 10px; z-index: 9999;">
+  <i class="bi bi-moon"></i>
+</button>
+ data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
   <!-- Navbar -->
   <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
@@ -351,7 +431,7 @@
   </nav>
 
   <!-- Home -->
-  <section id="home" class="container py-md-5 fade-in">
+  <section id="home" class="container py-md-5 fade-in ">
     <div class="row align-items-center flex-column-reverse flex-md-row">
       <div class="col-md-7 text-center text-md-start py-md-5">
         <h1 class="display-4 fw-bold">Mayileshwaran Deivendran</h1>
@@ -725,7 +805,7 @@
         <div class="card mx-auto p-4 shadow service-card" style="max-width: 500px;">
           <i class="bi bi-laptop display-4 text-success mb-3"></i>
           <h5 class="fw-bold">Website Design</h5>
-          <p>Designing clean, responsive, and user-friendly interfaces with HTML, CSS, Bootstrap, and Figma for better web experiences.</p>
+          <p>Designing clean, responsive, and user-friendly interfaces with HTML, CSS, Bootstrap, and Figma for better web Design experiences.</p>
         </div>
       </div>
 
@@ -791,7 +871,7 @@
   </a>
 </p>
 
-        <i class="bi bi-geo-alt-fill text-primary"></i>Paravai, Madurai </p>
+        <i class="bi bi-geo-alt-fill text-primary"></i>   Paravai, Madurai </p>
         <div class="mt-3">
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d204.98482767197333!2d78.06089614551912!3d9.9697924998184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1750149407223!5m2!1sen!2sin" width="auto" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
@@ -1154,8 +1234,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.addEventListener("DOMContentLoaded", typeWriter);
+
 </script>
 
   
+
+<script>
+const toggleBtn = document.getElementById("darkToggle");
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  const icon = toggleBtn.querySelector("i");
+  icon.classList.toggle("bi-moon");
+  icon.classList.toggle("bi-brightness-high");
+});
+ document.getElementById("darkToggle").addEventListener("click", () => {
+    console.log("Dark mode class applied?", document.body.classList.contains("dark-mode"));
+    console.log("Home section bg:", getComputedStyle(document.getElementById("home")).backgroundColor);
+  });
+</script>
+
 </body>
 </html>
