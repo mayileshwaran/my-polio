@@ -34,16 +34,27 @@
       font-weight: bold;
       font-size: 1.5rem;
     }
-    #home {
-      padding-top: 2rem;
-      padding-bottom: 4rem;
-      background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('./images/parallax-bg.jpg') center center/cover no-repeat fixed;
-    }
+   #home{
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    background-image:
+      linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+      url('./background.jpg');
+
+    background-size: cover;
+    background-repeat: no-repeat;
+}
     #home h1 {
       font-size: 2.5rem;
+      color:white;
     }
     #home p {
       font-size: 1.25rem;
+      color: whitesmoke;
     }
     footer {
       background-color: #007bff;
@@ -84,17 +95,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-.dark-mode #home {
-  background-color: #121212 !important;
-  background-image: none !important;
-  color: #ffffff !important;
-}
 
-.dark-mode #home h1,
-.dark-mode #home h5,
-.dark-mode #home p {
-  color: #ffffff !important;
-}
 
     /* Return to Top Button */
     #topBtn {
@@ -345,10 +346,41 @@
     line-height: 1.5rem;
   }
 }
+@media (max-width:1150px){
+
+    #home{
+       
+       background-position:  right;
+    }
+}
 
 
 
+@media (max-width:768px){
 
+    #home{
+        min-height: 70vh;
+padding-top: 50px;
+        background-image:
+          linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+          url('./download.jpg');
+          align-items: start;
+          justify-content: center;
+        background-size: cover;
+       background-position:  right;
+    }
+
+    #home h1{
+        font-size: 1.2rem;
+    }
+
+    #home h5{
+        font-size: 1.5rem;
+    }
+    #home p{
+        font-size: 1rem;
+    }
+}
   
 /* DARK MODE */
 .dark-mode {
@@ -388,7 +420,7 @@
   color: #aaa;
 }
 
-.dark-mode #home,
+
 .dark-mode .banner,
 .dark-mode .fade-in,
 .dark-mode .reveal-card {
@@ -396,27 +428,10 @@
   color: #ffffff !important;
 }
 
-.dark-mode #home h1,
-.dark-mode #home h5,
-.dark-mode #home p {
-  color: #ffffff !important;
-}
 .dark-mode .navbar-toggler-icon {
   filter: brightness(10); /* Makes the default icon white */
 }
 
-.dark-mode #home,
-.dark-mode #home.container {
-  background-color: #121212 !important;
-  background-image: none !important;
-  color: #ffffff !important;
-}
-
-.dark-mode #home h1,
-.dark-mode #home h5,
-.dark-mode #home p {
-  color: #ffffff !important;
-}
 
 
 /* Contact form input and icon adjustments */
@@ -509,13 +524,41 @@ footer{
     max-width: 100% !important;
     height: auto !important;
   }
+ #home h1{
+        font-size: 1rem;
+    }
 
+    #home h5{
+        font-size: 1.3rem;
+    }
+    #home p{
+        font-size: 0.8rem;
+    }
+}
+  
   .card,
   .flip-card,
   .flip-card-inner {
     max-width: 100% !important;
     box-sizing: border-box;
   }
+/* Project card links */
+#projects a{
+    text-decoration: none;
+    color: #000;
+}
+
+/* Dark mode */
+.dark-mode #projects a{
+    color: #fff;
+}
+
+/* Keep same color after visiting */
+#projects a:visited,
+#projects a:hover,
+#projects a:active{
+    color: inherit;
+    text-decoration: none;
 }
 
 </style>
@@ -548,25 +591,33 @@ footer{
   </nav>
 
   <!-- Home -->
-  <section id="home" class="container py-0 py-md-5 px-5 fade-in ">
-    <div class="row align-items-center flex-column-reverse flex-md-row">
-      <div class="col-md-7 textcenter- text-md-start py-0 py-md-5">
-        <h1 class="fw-bold display-3 display-lg-5">
-  Mayileshwaran Deivendran
-</h1>
+ <section id="home" class="container-fluid px-5 fade-in min-vh-100">
+  <div class="row align-items-start  justify-content-start flex-column-reverse flex-md-row">
 
-       <h5 class="display-4 fw-semibold">
-  <span id="typewriter"></span><span class="cursor">|Full Stack Web Developer</span>
-</h5>
-        <p class="lead">I am a Full Stack Web Developer passionate about building complete and responsive web applications.
-          Currently pursuing my Postgraduate degree in Computer Applications.
-          Focused on enhancing my skills in full-stack development, and advanced backend systems.
-          Actively working on real-world projects to bridge academic learning with industry needs.</p>
-      </div>
-      <div class="col-md-5 img text-center px-0 py-0 py-md-5">
-        <img src="./my-image.png" alt="Profile" style="width: 350px;" class="img-fluid py-5 mx-auto d-block  w-sm-50 w-md-25" >
-      </div>
+    <div class="col-md-7  text-start pt-md-3">
+      <h1 class="fw-bold display-3 display-lg-5">
+        Mayileshwaran Deivendran
+      </h1>
+
+      <h5 class="display-4 fw-semibold">
+        <span id="typewriter"></span>
+        <span class="cursor text-light">|Full Stack Web Developer</span>
+      </h5>
+
+      <p class="lead">
+        I am a Full Stack Web Developer passionate about building complete and responsive web applications.
+        Currently pursuing my Postgraduate degree in Computer Applications.
+        Focused on enhancing my skills in full-stack development, and advanced backend systems.
+        Actively working on real-world projects to bridge academic learning with industry needs.
+      </p>
     </div>
+
+    <div class="col-md-5 img text-center px-0">
+      <!-- Image -->
+    </div>
+
+  </div>
+</section>
   </section>
 
   <!-- Skills -->
@@ -894,10 +945,11 @@ footer{
       </div>
     </div>
      <div class="col-md-6 mb-4">
+      <a href="https://sellamenterprises.in/" target="_blank" class="red">
       <div class="card h-100">
         <img src="./sellam.PNG" class="card-img-top img-fluid" alt="College Finder">
         <div class="card-body">
-          <h5 class="card-title">Sellam Enterprises</h5>
+          <h5 class="card-title">Sellam Enterprises</h5></a>
         </div>
       </div>
     </div>

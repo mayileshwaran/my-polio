@@ -1,2 +1,2 @@
 # my-polio
-my portfoilio
+its my portfolio
