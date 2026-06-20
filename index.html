@@ -693,6 +693,7 @@ footer{
           </div>
         </div>
       </div>
+      
     </div>
 
     <div class="col-6 col-md-3">
@@ -958,6 +959,38 @@ footer{
         <img src="./timesnew.PNG" class="card-img-top img-fluid" alt="College Finder">
         <div class="card-body">
           <h5 class="card-title">timesnew</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <img src="./images/turf.PNG" class="card-img-top img-fluid" alt="College Finder">
+        <div class="card-body">
+          <h5 class="card-title">Turfbook</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <img src="./images/mng.PNG" class="card-img-top img-fluid" alt="College Finder">
+        <div class="card-body">
+          <h5 class="card-title">Event Management</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <img src="./images/constr.PNG" class="card-img-top img-fluid" alt="College Finder">
+        <div class="card-body">
+          <h5 class="card-title">Constructions</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card h-100">
+        <img src="./images/vetri.PNG" class="card-img-top img-fluid" alt="College Finder">
+        <div class="card-body">
+          <h5 class="card-title">Vetri tamilnadu</h5>
         </div>
       </div>
     </div>
@@ -1235,7 +1268,9 @@ footer{
       </div>
     </div> -->
     <div class="text-center mt-4">
-      <small>&copy; 2025 Mayileshwaran | All rights reserved</small>
+      <small>
+    &copy; <span id="year"></span> Mayileshwaran | All rights reserved
+</small>
     </div>
   </div>
 </footer>
@@ -1248,6 +1283,7 @@ footer{
 <script>AOS.init();</script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
     // Scroll-based fade-in animation
     const faders = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver(entries => {
